@@ -9,9 +9,10 @@ with open("tds_course_content.json", "r", encoding="utf-8") as f:
 
 # Initialize OpenAI client (use your key here or set env var)
 client = OpenAI(
-    api_key="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",  # 👈 Replace with your key
+    api_key=os.getenv("OPENROUTER_API_KEY"),  # ✅ get from env
     base_url="https://openrouter.ai/api/v1"
 )
+
 
 # Initialize Flask app
 app = Flask(__name__)
