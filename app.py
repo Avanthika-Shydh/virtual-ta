@@ -4,7 +4,7 @@ import json
 import os
 
 # Load course content
-with open("../tds/tds_course_content.json", "r", encoding="utf-8") as f:
+with open("tds_course_content.json", "r", encoding="utf-8") as f:
     course_data = json.load(f)
 
 # Initialize OpenAI client (use your key here or set env var)
@@ -41,4 +41,5 @@ Use the following course content to help answer questions:\n{context}\n"""
 
 # Run Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
